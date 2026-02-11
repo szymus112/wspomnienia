@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasze Wspomnienia 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff0a54;
+            --secondary: #ff477e;
+            --bg: #0f0f1a;
+            --text: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+        /* EKRAN STARTOWY */
+        #start-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease;
+        }
+        
+        #start-btn {
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Dancing Script', cursive;
+            box-shadow: 0 0 20px rgba(255, 10, 84, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        /* HEADER */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #2a1b2e 0%, #0f0f1a 100%);
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            background: -webkit-linear-gradient(#fff, #ff477e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* LICZNIK */
+        .timer-container {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .time-box {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 100px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .time-box p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* SEKCJE OGÓLNE */
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 50px;
+        }
+
+        /* TIMELINE (NASZA HISTORIA) */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--card-bg);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .container-t {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .container-t::after {
+            content: '❤️';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            right: -22px;
+            background-color: var(--bg);
+            border: 2px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+        .left::before { content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; right: 30px; border: medium solid white; border-width: 10px 0 10px 10px; border-color: transparent transparent transparent var(--card-bg); }
+        .right::before { content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; left: 30px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent var(--card-bg) transparent transparent; }
+        .right::after { left: -22px; }
+
+        .content {
+            padding: 20px 30px;
+            background-color: var(--card-bg);
+            position: relative;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .content h3 { color: var(--primary); margin-bottom: 10px; }
+        .content p { font-size: 0.9rem; }
+
+        /* DLACZEGO TY? (Karty) */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .reason-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 10, 84, 0.1);
+        }
+
+        .reason-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* GALERIA (Masonry style) */
+        .gallery-grid {
+            columns: 3 200px;
+            column-gap: 15px;
+        }
+
+        .gallery-item {
+            margin-bottom: 15px;
+            break-inside: avoid;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* KUPONY */
+        .coupons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .coupon {
+            background: linear-gradient(45deg, #ff0a54, #ff477e);
+            width: 280px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 5px dashed rgba(0,0,0,0.3);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .coupon:hover { transform: scale(1.02); }
+
+        .coupon h3 { font-size: 1.5rem; margin-bottom: 5px; }
+        .coupon small { display: block; margin-top: 10px; opacity: 0.8; font-size: 0.7rem; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #000;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* MUZYKA */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .plans-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .plans-list {
+            list-style: none;
+        }
+
+        .plan-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1.1rem;
+        }
+
+        .plan-item:last-child { border-bottom: none; }
+
+        .plan-item i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .plan-item.done {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: line-through;
+        }
+
+        .plan-item.done i { color: #2ecc71; }
+        .plan-item.pending i { color: var(--secondary); }
+
+        /* MOBILE FIXES */
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .container-t { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .container-t::before { left: 60px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent var(--card-bg) transparent transparent; }
+            .left::after, .right::after { left: 11px; }
+            .right { left: 0%; }
+            h1 { font-size: 2.8rem; }
+            .time-box { padding: 10px; min-width: 70px; }
+            .time-box span { font-size: 1.5rem; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="start-screen">
+        <h1 style="font-size: 2rem; margin-bottom: 30px;">Mam coś dla Ciebie...</h1>
+        <button id="start-btn">Otwórz Prezent 🎁</button>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://files.catbox.moe/1wf9fg.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control" onclick="toggleMusic()">
+        <i class="fas fa-volume-up" id="music-icon"></i>
+    </div>
+
+    <header>
+        <h1>Cześć Skarbie ❤️</h1>
+        <p class="subtitle">Od 9 listopada 2025 mój świat stał się lepszy. Dziś Walentynki, więc przygotowałem małe podsumowanie naszej historii...</p>
+        
+        <div class="timer-container">
+            <div class="time-box"><span id="days">0</span><p>Dni</p></div>
+            <div class="time-box"><span id="hours">0</span><p>Godzin</p></div>
+            <div class="time-box"><span id="minutes">0</span><p>Minut</p></div>
+            <div class="time-box"><span id="seconds">0</span><p>Sekund</p></div>
+        </div>
+    </header>
+
+    <section>
+        <h2>Nasza Historia</h2>
+        <div class="timeline">
+            <div class="container-t left">
+                <div class="content">
+                    <h3>09.11.2025</h3>
+                    <p>Dzień, w którym wszystko się zaczęło. Pamiętam ten moment, jakby to było wczoraj. ✨</p>
+                </div>
+            </div>
+            <div class="container-t right">
+                <div class="content">
+                    <h3>Pierwsza Randka</h3>
+                    <p>Pamiętasz to? Było trochę stresu, ale kiedy Cię zobaczyłem, wiedziałem że przepadłem. 🍷</p>
+                </div>
+            </div>
+            <div class="container-t left">
+                <div class="content">
+                    <h3>Grudzień 2025</h3>
+                    <p>Nasze pierwsze wspólne Mikołajki/Święta. Ten czas zbliżył nas do siebie jeszcze bardziej. 🎄</p>
+                </div>
+            </div>
+             <div class="container-t right">
+                <div class="content">
+                    <h3>Dzisiaj</h3>
+                    <p>Nasze pierwsze Walentynki. I obiecuję Ci, że jedne z wielu, które przed nami. 💘</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Dlaczego Ty?</h2>
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <i class="fas fa-smile-beam"></i>
+                <h3>Twój uśmiech</h3>
+                <p>Potrafi naprawić mój najgorszy dzień w sekundę.</p>
+            </div>
+            <div class="reason-card">
+                <i class="fas fa-brain"></i>
+                <h3>Twój charakter</h3>
+                <p>Kocham to, jak myślisz i jak patrzysz na świat.</p>
+            </div>
+            <div class="reason-card">
+                <i class="fas fa-heart"></i>
+                <h3>Twoje serce</h3>
+                <p>Jesteś najbardziej troskliwą osobą jaką znam.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Nasze Wspomnienia</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=400" alt="Foto"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=400" alt="Foto"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=400" alt="Foto"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518105570919-e342af1a2956?q=80&w=400" alt="Foto"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400" alt="Foto"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506956191951-7a88da4435e5?q=80&w=400" alt="Foto"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Nasze Plany</h2>
+        <div class="plans-container">
+            <ul class="plans-list">
+                <li class="plan-item done">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Pierwsza wspólna pizza (Zaliczone!)</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Wypad w góry na wschód słońca</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Weekend w Paryżu / Rzymie</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Adopcja psa/kota (Kiedyś!)</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Nauka wspólnego gotowania czegoś trudnego</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+// DATA STARTU
+        const startDate = new Date(2025, 10, 9, 0, 0, 0);
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours;
+            document.getElementById('minutes').innerText = minutes;
+            document.getElementById('seconds').innerText = seconds;
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // OBSŁUGA MULTIMEDIÓW
+        const startScreen = document.getElementById('start-screen');
+        const startBtn = document.getElementById('start-btn');
+        const audio = document.getElementById('bg-music');
+        const musicIcon = document.getElementById('music-icon');
+        const volumeSlider = document.getElementById('volume-slider');
+
+        // Ustawienie głośności na start (30%)
+        audio.volume = 0.2;
+
+        // Funkcja startowa
+        startBtn.addEventListener('click', () => {
+            startScreen.style.opacity = '0';
+            setTimeout(() => {
+                startScreen.style.display = 'none';
+            }, 1000);
+            
+            audio.play().catch(e => console.log("Autoplay blocked"));
+        });
+
+        // Zmiana głośności
+        volumeSlider.addEventListener('input', (e) => {
+            const vol = e.target.value;
+            audio.volume = vol;
+            if (vol == 0) {
+                musicIcon.className = "fas fa-volume-mute";
+            } else if (vol < 0.5) {
+                musicIcon.className = "fas fa-volume-down";
+            } else {
+                musicIcon.className = "fas fa-volume-up";
+            }
+        });
+
+        // Pauza/Play po kliknięciu w ikonkę
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                musicIcon.className = audio.volume < 0.5 ? "fas fa-volume-down" : "fas fa-volume-up";
+            } else {
+                audio.pause();
+                musicIcon.className = "fas fa-volume-mute";
+            }
+        }
+    </script>
+</body>
+</html>
