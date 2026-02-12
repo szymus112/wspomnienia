@@ -1,0 +1,530 @@
+:root {
+    --primary: #ff0a54;
+    --secondary: #ff477e;
+    --bg: #0f0f1a;
+    --text: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+/* EKRAN STARTOWY */
+
+
+/* HEADER */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #2a1b2e 0%, #0f0f1a 100%);
+    position: relative;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    background: -webkit-linear-gradient(#fff, #ff477e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* LICZNIK */
+.timer-container {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.time-box {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    min-width: 100px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.time-box span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.time-box p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* SEKCJE OGÓLNE */
+section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 50px;
+}
+
+/* TIMELINE (NASZA HISTORIA) */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--card-bg);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.container-t {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.container-t::after {
+    content: '❤️';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: -22px;
+    background-color: var(--bg);
+    border: 2px solid var(--primary);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.left { left: 0; }
+.right { left: 50%; }
+.left::before { content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; right: 30px; border: medium solid white; border-width: 10px 0 10px 10px; border-color: transparent transparent transparent var(--card-bg); }
+.right::before { content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; left: 30px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent var(--card-bg) transparent transparent; }
+.right::after { left: -22px; }
+
+.content {
+    padding: 20px 30px;
+    background-color: var(--card-bg);
+    position: relative;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.content h3 { color: var(--primary); margin-bottom: 10px; }
+.content p { font-size: 0.9rem; }
+
+/* DLACZEGO TY? (Karty) */
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    cursor: pointer;
+}
+
+.reason-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.reason-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 10, 84, 0.1);
+}
+
+.reason-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+/* GALERIA */
+.gallery-grid {
+    columns: 4 130px;
+    column-gap: 15px;
+}
+
+.gallery-item {
+    margin-bottom: 15px;
+    break-inside: avoid;
+    position: relative;
+    border-radius: 15px;
+    border: 2px solid rgba(99, 92, 92, 0.651);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* MODAL DLA ZDJĘĆ */
+#image-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#modal-img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    border: 2px solid rgba(99, 92, 92, 0.651);
+}
+
+#modal-caption {
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* KUPONY */
+.coupons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.coupon {
+    background: linear-gradient(45deg, #ff0a54, #ff477e);
+    width: 280px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    border-left: 5px dashed rgba(0,0,0,0.3);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.coupon:hover { transform: scale(1.02); }
+
+.coupon h3 { font-size: 1.5rem; margin-bottom: 5px; }
+.coupon small { display: block; margin-top: 10px; opacity: 0.8; font-size: 0.7rem; }
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #000;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* MUZYKA */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.plans-container {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.plans-list {
+    list-style: none;
+}
+
+.plan-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 1.1rem;
+}
+
+.plan-item:last-child { border-bottom: none; }
+
+.plan-item i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.plan-item.done {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: line-through;
+}
+
+.plan-item.done i { color: #2ecc71; }
+.plan-item.pending i { color: var(--secondary); }
+
+/* MOBILE FIXES */
+@media screen and (max-width: 600px) {
+    .timeline::after { left: 31px; }
+    .container-t { width: 100%; padding-left: 70px; padding-right: 25px; }
+    .container-t::before { left: 60px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent var(--card-bg) transparent transparent; }
+    .left::after, .right::after { left: 11px; }
+    .right { left: 0%; }
+    h1 { font-size: 2.8rem; }
+    .time-box { padding: 10px; min-width: 70px; }
+    .time-box span { font-size: 1.5rem; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 20000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: rgba(20, 20, 30, 0.95);
+    padding: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: modalSlide 0.4s ease-out;
+}
+
+@keyframes modalSlide {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.modal-content hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--secondary), transparent);
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: white;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.close-btn:hover { opacity: 1; }
+
+/* Styl dla wykorzystanych kuponów */
+.reason-card.used {
+    opacity: 0.3;
+    filter: grayscale(1);
+    pointer-events: none;
+    transform: scale(0.95) !important;
+}
+
+.status-badge {
+    margin-top: 10px;
+    font-size: 0.7rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Przyciski w oknie potwierdzenia */
+.modal-btn-yes {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-btn-no {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 12px 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.final-question {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.question-container {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: inline-block;
+}
+
+/* POPRAWIONE PRZYCISKI FINALNE */
+.buttons-row {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column; /* Przycisk pod przyciskiem na starcie dla stabilności */
+    align-items: center;
+    gap: 20px;
+    min-height: 150px; /* Rezerwuje miejsce na rosnący przycisk */
+}
+
+#yes-btn, #no-btn {
+    width: 100%; /* Pełna szerokość kontenera na mobile */
+    max-width: 250px; /* Ale nie za szerokie na komputerze */
+    padding: 18px 30px;
+    border-radius: 100px; /* Bardziej zaokrąglone, nowoczesne */
+    border: none;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    touch-action: manipulation; /* Optymalizacja pod dotyk */
+}
+
+#yes-btn {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 25px rgba(255, 10, 84, 0.4);
+    z-index: 2; /* Zawsze nad przyciskiem NIE */
+}
+
+#no-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+/* Jeśli ekran jest szerszy (tablet/PC), mogą być obok siebie */
+@media (min-width: 480px) {
+    .buttons-row {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start; /* Ważne, by przyciski rosły w górę/dół, a nie przesuwały linii */
+    }
+}
+
+.close-final {
+    margin-top: 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}

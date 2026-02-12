@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasze Wspomnienia 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="image-modal" onclick="closeModal()">
+        <img id="modal-img" src="" alt="Powiększone zdjęcie">
+        <div id="modal-caption">Nasze Wspomnienie ❤️</div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://files.catbox.moe/3m6pi2.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control" onclick="toggleMusic()">
+        <i class="fas fa-volume-up" id="music-icon"></i>
+    </div>
+
+    <header>
+        <h1>Cześć Skarbie ❤️</h1>
+        <p class="subtitle">Od 9 listopada 2025 mój świat stał się lepszy. Dziś Walentynki, więc przygotowałem małe podsumowanie naszej historii...</p>
+        
+        <div class="timer-container">
+            <div class="time-box"><span id="days">0</span><p>Dni</p></div>
+            <div class="time-box"><span id="hours">0</span><p>Godzin</p></div>
+            <div class="time-box"><span id="minutes">0</span><p>Minut</p></div>
+            <div class="time-box"><span id="seconds">0</span><p>Sekund</p></div>
+        </div>
+    </header>
+
+    <section>
+        <h2>Nasza Historia</h2>
+        <div class="timeline">
+            <div class="container-t left">
+                <div class="content">
+                    <h3>09.11.2025</h3>
+                    <p>Dzień, w którym wszystko się zaczęło. Pamiętam ten moment, jakby to było wczoraj. ✨</p>
+                </div>
+            </div>
+            <div class="container-t right">
+                <div class="content">
+                    <h3>Pierwsza wspólna podróż</h3>
+                    <p>Nasza pierwsza wspólna przygoda. Czas pełen spokoju i bliskości, który był idealnym wstępem do wszystkiego, co przeżyliśmy później. 🚄</p>
+                </div>
+            </div>
+            <div class="container-t left">
+                <div class="content">
+                    <h3>Pierwszy Sylwestra</h3>
+                    <p>Nasze pierwsze wspólne odliczanie. Już wtedy wiedziałem, że każdy kolejny rok chcę zaczynać tylko z Tobą. 🎉</p>
+                </div>
+            </div>
+             <div class="container-t right">
+                <div class="content">
+                    <h3>Dzisiaj</h3>
+                    <p>Nasze pierwsze Walentynki. I obiecuję Ci, że jedne z wielu, które przed nami. 💘</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Dlaczego Ty?</h2>
+        <div class="reasons-grid">
+            <div class="reason-card" onclick="openReasonModal('Twój uśmiech', 'To mój ulubiony widok na świecie. Uwielbiam to, jak Twój uśmiech rozświetla nawet najbardziej pochmurny dzień i sprawia, że w ułamku sekundy zapominam o wszystkich problemach. Kiedy się uśmiechasz, świat staje się po prostu lepszym miejscem – a ja staję się najszczęśliwszym facetem, bo wiem, że to ja mogę go oglądać z bliska.')">
+                <i class="fas fa-brain"></i>
+                <h3>Twój uśmiech</h3>
+                <p>Kliknij, aby dowiedzieć się więcej...</p>
+            </div>
+            <div class="reason-card" onclick="openReasonModal('Twój charakter', 'Podziwiam Cię za to, jaką jesteś osobą. Twoja inteligencja, poczucie humoru i sposób, w jaki patrzysz na świat, nie przestają mnie fascynować. Kocham nasze rozmowy, Twoje wsparcie i to, że przy Tobie mogę być w pełni sobą. Jesteś moją najlepszą przyjaciółką i najwspanialszą kobietą w jednym.')">
+                <i class="fas fa-brain"></i>
+                <h3>Twój charakter</h3>
+                <p>Kliknij, aby dowiedzieć się więcej...</p>
+            </div>
+            <div class="reason-card" onclick="openReasonModal('Twoje serce', 'Masz w sobie tyle dobroci i troski, że czasem brakuje mi słów. Sposób, w jaki dbasz o mnie i o innych, pokazuje, jak wielkie masz serce. Czuję się niesamowicie bezpieczny i kochany przy Tobie. Od 9 listopada to właśnie Twoje serce jest moim domem i obiecuję, że zawsze będę o nie dbał.')">
+                <i class="fas fa-heart"></i>
+                <h3>Twoje serce</h3>
+                <p>Kliknij, aby dowiedzieć się więcej...</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Nasze Wspomnienia</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187559832096882/1000014468.jpg?ex=698e05af&is=698cb42f&hm=c00869679786cb90062e464bfc730a2261b98b8e5e609bb9875512d537fa55c3&=&format=webp&width=589&height=782" alt="Nasze pierwsze zdjęcie razem ❤️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187560217837598/1000014454.jpg?ex=698e05af&is=698cb42f&hm=2982ce6a7961a0b747aec39cf91af2c4c5712bca12ee31359c3fcebc357b08b1&=&format=webp&width=589&height=782" alt="Słodziaczki ❤️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187544367698153/1000015590.jpg?ex=698e05ab&is=698cb42b&hm=cb891d9e83fcbbefd8ed74b37b6c1cb15813381e7f18bbfae7550d4a1bb5e5f7&=&format=webp&width=1041&height=782" alt="Czarnuch 🐈‍⬛"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187545206427699/1000015586.jpg?ex=698e05ac&is=698cb42c&hm=d6914a18061c65670b3fcfd3d8a9521a802fdc090414beedf938da14a98f84c6&=&format=webp&width=440&height=782" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187559269924895/1000016557.jpg?ex=698e05af&is=698cb42f&hm=8fdab7dec96a63b5c10a46f9b3ee85c9f21a3b501a2eb94b490ecbea05dde0eb&=&format=webp&width=586&height=782" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187546271649803/1000015716.jpg?ex=698e05ac&is=698cb42c&hm=fe616aceeaab8e7de065f8b59b819d89bbd49904e5c2fe63d61c14daada7006d&=&format=webp&width=587&height=781" alt="Ciężki melanż 🍾"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187542903750769/1000015567.jpg?ex=698e05ab&is=698cb42b&hm=ac365f1a25b274cc4e89339b27476d6d68f946a5c865866686e7aee8e8985dc3&=&format=webp&width=587&height=781" alt="Debil 😍"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187541939064842/1000015549.jpg?ex=698e05ab&is=698cb42b&hm=f80621604ae638a12d78186f2090370e93df9caceccedfae2db33e33b722badf&=&format=webp&width=586&height=782" alt="Pączuś ❤️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187541016449115/1000015080.jpg?ex=698e05ab&is=698cb42b&hm=65eb1efc70a5ddea52615beb2f63f74c87345277eaf44108fd5103979ac48d2d&=&format=webp&width=440&height=782" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187540055818446/1000014936.jpg?ex=698e05aa&is=698cb42a&hm=909c464e7959f0af8fe8717db591eb8c3232620a45a4e997e5f44bd459697e0b&=&format=webp&width=586&height=782" alt="Alkoholik 🍷"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187538898194472/1000015097.jpg?ex=698e05aa&is=698cb42a&hm=e22a4bff6a07e8cc566bf11c8de484d66ee8d3902c0f96595165d79cf40f5c3a&=&format=webp&width=587&height=781" alt="Wieśniak 🧑‍🌾"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187538159866111/1000015114.jpg?ex=698e05aa&is=698cb42a&hm=1ec4178a1160cbf0e1c8964b3eb50d6e22c7f3fdb8e1d7e5ec1edd4a7835fb21&=&format=webp&width=375&height=782" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187537648287876/1000014444.jpg?ex=698e05aa&is=698cb42a&hm=a5eedeb189e35dbd326f899e0564ed3f7c7c6967689aea6ceb75b2625d234935&=&format=webp&width=586&height=782" alt="Mój patus ⚔️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187499996025090/1000016268.jpg?ex=698e05a1&is=698cb421&hm=fd42eb19cf9e59f028ef3c662c52d294261d1247d44209a821f279e94f366ec3&=&format=webp&width=587&height=781" alt="My po ciężkiej i słodkiej nocy 🥰"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187498569957499/1000016109.jpg?ex=698e05a1&is=698cb421&hm=3f928106c85727144f4fa29cb361a0d8527f0cf4dddcc84b0c1ff96d6e3008c9&=&format=webp&width=587&height=781" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187497169059912/1000016108.jpg?ex=698e05a0&is=698cb420&hm=1f7d0d18984c0318fecbb7ff1718349c1b0ff032e59417a3a3a01a85c47f39e6&=&format=webp&width=1041&height=782" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187496196116612/1000016081.jpg?ex=698e05a0&is=698cb420&hm=74639a11a6e7cb3ebddd21d0ca081be8e788bc933485bd8e004f9321fa8430e1&=&format=webp&width=586&height=782" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187495679950949/1000016073.jpg?ex=698e05a0&is=698cb420&hm=41c109a38c0ea162bfc3197ccf1820acf59a2a47274dbcd0a4f38d2f441fcb22&=&format=webp&width=586&height=782" alt="My i nasz bob ☃️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187495244009653/1000016061.jpg?ex=698e05a0&is=698cb420&hm=a247929f3a112a9aaeb236f0eb0fa836bacada651a9830631d5ab88587fd544b&=&format=webp&width=586&height=782" alt="Jakie sigmy 🗿"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187494849478656/1000016047.jpg?ex=698e05a0&is=698cb420&hm=6fcbcfbeffedf6ea9ac10fb4f02d3d452b8fe2a13f1b3c42c0ab54257b4c5a2a&=&format=webp&width=375&height=782" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187494220599369/1000015916.jpg?ex=698e059f&is=698cb41f&hm=4f93e17e8c382e9b9213e9d9284c55b8922379e35cbfc2667646f6a36b1621ff&=&format=webp&width=440&height=782" alt="Buziaczki 💖"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187492949463268/1000016556.jpg?ex=698e059f&is=698cb41f&hm=47499ac0c728c0a61d6c9da739766114b5dc02db5b35486d9f02f51578c09733&=&format=webp&width=587&height=781" alt="Ruda konfiturka 🦊"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187491947020560/1000016273.jpg?ex=698e059f&is=698cb41f&hm=fbfeba6f3aab36a1d8a3e45bfabed5125148d965b73d3d922433b3e7c2c7251e&=&format=webp&width=440&height=782" alt="Nie miła peppa 🖕"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187461681188884/1000015905.jpg?ex=698e0598&is=698cb418&hm=5957cfb3b88b2b86a0bc427864616d87e17a493331ae1c9f1dc442de9a6c3b0a&=&format=webp&width=440&height=782" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187461001449532/1000015556.jpg?ex=698e0598&is=698cb418&hm=5d691a42b0a3481549f3ccb9ec7748c10ce701a0a633323c24bdc20cc4ef6ce0&=&format=webp&width=589&height=782" alt="Nasze pierwsze słodkie zdjęcie ❤️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187460594733139/1000015532.jpg?ex=698e0597&is=698cb417&hm=22ad784cc17f3fa6d27693e01400ef6a04f8d2b18630875d858e8edb3d2c2f0b&=&format=webp&width=440&height=782" alt="Sylwester z psychopatami ☠️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187460011593843/1000015115.jpg?ex=698e0597&is=698cb417&hm=09eb5448368369aa4c1e1474d96b1fca72e9a14da74db0c9a5bf494b8e7b81cf&=&format=webp&width=388&height=782" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187459332374593/1000015113.jpg?ex=698e0597&is=698cb417&hm=81921c8fab6d487d355a95263411edc2479f175e06917e80f5494bd1538940b2&=&format=webp&width=586&height=782" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187458971406480/1000015109.png?ex=698e0597&is=698cb417&hm=c949617d4b6d79d9b192c672f0ad46df9d222dcb03e928e78de33766077996c7&=&format=webp&quality=lossless" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187458426405058/1000014495.jpg?ex=698e0597&is=698cb417&hm=e7a2217c070ccd0828ba486d9be399152e3b221b3e0834318c1cab5f56be3c3f&=&format=webp&width=440&height=782" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187457956515966/1000015988.png?ex=698e0597&is=698cb417&hm=b4b0eba5004ec6d24b8b8a48568a5619ddbdb05a96b8f5190b4178076c436a31&=&format=webp&quality=lossless&width=594&height=782" alt="My razem z kastim 👪"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187457402863821/1000015991.png?ex=698e0597&is=698cb417&hm=fc21937e2c020d351803fb31be11355c9efdc18a897ac1a6e261a9cda90005a2&=&format=webp&quality=lossless&width=584&height=782" alt="Niegrzeczny kasti 👦"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="https://media.discordapp.net/attachments/1354914478919258373/1471187456874385578/1000015909.jpg?ex=698e0597&is=698cb417&hm=81148c518c46133a2eab88c5f4ee9c453da64eef6dd2923db4a47ec8dd4d1c64&=&format=webp&width=440&height=782" alt="Muminki 🎭"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Nasze Plany</h2>
+        <div class="plans-container">
+            <ul class="plans-list">
+                <li class="plan-item done">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Pierwszy wspólny wyjazd (Zaliczone!)</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Wyprowadzenie się na własne mieszkanie</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Wyjazd w góry ze znajomymi</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Adopcja psa/kota</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Wziąć ślub (Kiedyś!)</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div id="description-modal" class="custom-modal" onclick="closeDescModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeDescModal()">&times;</span>
+        <h3 id="desc-title"></h3>
+        <hr>
+        <p id="desc-text"></p>
+    </div>
+</div>
+
+<section>
+    <h2>Twoje Kupony</h2>
+    <div class="reasons-grid">
+        <div class="reason-card" id="coupon-1" onclick="askCoupon('coupon-1', 'Rób ze mną, co tylko zechcesz.')">
+            <i class="fas fa-ticket-alt"></i>
+            <h3>Rób ze mną, co tylko zechcesz.</h3>
+            <p>Kliknij, aby wykorzystać</p>
+            <div class="status-badge">Dostępny ❤️</div>
+        </div>
+        <div class="reason-card" id="coupon-2" onclick="askCoupon('coupon-2', 'Przebierz mnie dowolnie!')">
+            <i class="fas fa-ticket-alt"></i>
+            <h3>Przebierz mnie dowolnie!</h3>
+            <p>Kliknij, aby wykorzystać</p>
+            <div class="status-badge">Dostępny ❤️</div>
+        </div>
+        <div class="reason-card" id="coupon-3" onclick="askCoupon('coupon-3', 'Twoja erotyczna fantazja. Gdziekolwiek chcesz.')">
+            <i class="fas fa-ticket-alt"></i>
+            <h3>Twoja erotyczna fantazja. Gdziekolwiek chcesz.</h3>
+            <p>Kliknij, aby wykorzystać</p>
+            <div class="status-badge">Dostępny ❤️</div>
+        </div>
+    </div>
+</section>
+
+<div id="coupon-modal" class="custom-modal">
+    <div class="modal-content">
+        <h3 id="modal-coupon-title">Czy na pewno?</h3>
+        <p>Chcesz wykorzystać ten kupon teraz?</p>
+        <hr style="margin: 15px 0; opacity: 0.1; border: 0; border-top: 1px solid white;">
+        <div style="display: flex; justify-content: center; gap: 15px;">
+            <button id="confirm-coupon-btn" class="modal-btn-yes">TAK</button>
+            <button onclick="closeCouponModal()" class="modal-btn-no">NIE</button>
+        </div>
+    </div>
+</div>
+
+<section class="final-question">
+    <h2>Zanim wyjdziesz...</h2>
+    <div class="question-container">
+        <p>Czy zostaniesz moją Walentynką na zawsze? ❤️</p>
+        <div class="buttons-row">
+            <button id="yes-btn" onclick="celebrate()">TAK!</button>
+            <button id="no-btn" onclick="handleNo()">NIE</button>
+        </div>
+    </div>
+</section>
+
+<div id="final-modal" class="custom-modal" onclick="closeFinalModal()">
+    <div class="modal-content">
+        <h3>Wiedziałem! 😍</h3>
+        <hr>
+        <p>Jesteś moją najlepszą decyzją w życiu. Kocham Cię najbardziej na świecie! 💖</p>
+        <button class="close-final" onclick="closeFinalModal()">Daj buziaka! 💋</button>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
