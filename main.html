@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasze Wspomnienia 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="image-modal" onclick="closeModal()">
+        <img id="modal-img" src="" alt="Powiększone zdjęcie">
+        <div id="modal-caption">Nasze Wspomnienie ❤️</div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://files.catbox.moe/3m6pi2.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control" onclick="toggleMusic()">
+        <i class="fas fa-volume-up" id="music-icon"></i>
+    </div>
+
+    <header>
+        <h1>Cześć Skarbie ❤️</h1>
+        <p class="subtitle">Od 9 listopada 2025 mój świat stał się lepszy. Dziś Walentynki, więc przygotowałem małe podsumowanie naszej historii...</p>
+        
+        <div class="timer-container">
+            <div class="time-box"><span id="days">0</span><p>Dni</p></div>
+            <div class="time-box"><span id="hours">0</span><p>Godzin</p></div>
+            <div class="time-box"><span id="minutes">0</span><p>Minut</p></div>
+            <div class="time-box"><span id="seconds">0</span><p>Sekund</p></div>
+        </div>
+    </header>
+
+    <section>
+        <h2>Nasza Historia</h2>
+        <div class="timeline">
+            <div class="container-t left">
+                <div class="content">
+                    <h3>09.11.2025</h3>
+                    <p>Dzień, w którym wszystko się zaczęło. Pamiętam ten moment, jakby to było wczoraj. ✨</p>
+                </div>
+            </div>
+            <div class="container-t right">
+                <div class="content">
+                    <h3>Pierwsza wspólna podróż</h3>
+                    <p>Nasza pierwsza wspólna przygoda. Czas pełen spokoju i bliskości, który był idealnym wstępem do wszystkiego, co przeżyliśmy później. 🚄</p>
+                </div>
+            </div>
+            <div class="container-t left">
+                <div class="content">
+                    <h3>Pierwszy Sylwestra</h3>
+                    <p>Nasze pierwsze wspólne odliczanie. Już wtedy wiedziałem, że każdy kolejny rok chcę zaczynać tylko z Tobą. 🎉</p>
+                </div>
+            </div>
+             <div class="container-t right">
+                <div class="content">
+                    <h3>Dzisiaj</h3>
+                    <p>Nasze pierwsze Walentynki. I obiecuję Ci, że jedne z wielu, które przed nami. 💘</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Dlaczego Ty?</h2>
+        <div class="reasons-grid">
+            <div class="reason-card" onclick="openReasonModal('Twój uśmiech', 'To mój ulubiony widok na świecie. Uwielbiam to, jak Twój uśmiech rozświetla nawet najbardziej pochmurny dzień i sprawia, że w ułamku sekundy zapominam o wszystkich problemach. Kiedy się uśmiechasz, świat staje się po prostu lepszym miejscem – a ja staję się najszczęśliwszym facetem, bo wiem, że to ja mogę go oglądać z bliska.')">
+                <i class="fas fa-brain"></i>
+                <h3>Twój uśmiech</h3>
+                <p>Kliknij, aby dowiedzieć się więcej...</p>
+            </div>
+            <div class="reason-card" onclick="openReasonModal('Twój charakter', 'Podziwiam Cię za to, jaką jesteś osobą. Twoja inteligencja, poczucie humoru i sposób, w jaki patrzysz na świat, nie przestają mnie fascynować. Kocham nasze rozmowy, Twoje wsparcie i to, że przy Tobie mogę być w pełni sobą. Jesteś moją najlepszą przyjaciółką i najwspanialszą kobietą w jednym.')">
+                <i class="fas fa-brain"></i>
+                <h3>Twój charakter</h3>
+                <p>Kliknij, aby dowiedzieć się więcej...</p>
+            </div>
+            <div class="reason-card" onclick="openReasonModal('Twoje serce', 'Masz w sobie tyle dobroci i troski, że czasem brakuje mi słów. Sposób, w jaki dbasz o mnie i o innych, pokazuje, jak wielkie masz serce. Czuję się niesamowicie bezpieczny i kochany przy Tobie. Od 9 listopada to właśnie Twoje serce jest moim domem i obiecuję, że zawsze będę o nie dbał.')">
+                <i class="fas fa-heart"></i>
+                <h3>Twoje serce</h3>
+                <p>Kliknij, aby dowiedzieć się więcej...</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Nasze Wspomnienia</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000014468.jpg" alt="Nasze pierwsze zdjęcie razem ❤️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000014454.jpg" alt="Słodziaczki ❤️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015590.jpg" alt="Czarnuch 🐈‍⬛"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015586.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000016557.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015716.jpg" alt="Ciężki melanż 🍾"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015567.jpg" alt="Debil 😍"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015549.jpg" alt="Pączuś ❤️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015080.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000014936.jpg" alt="Alkoholik 🍷"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015097.jpg" alt="Wieśniak 🧑‍🌾"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015114.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000014444.jpg" alt="Mój patus ⚔️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000016268.jpg" alt="My po ciężkiej i słodkiej nocy 🥰"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000016109.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000016108.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000016081.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000016073.jpg" alt="My i nasz bob ☃️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000016061.jpg" alt="Jakie sigmy 🗿"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000016047.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015916.jpg" alt="Buziaczki 💖"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000016556.jpg" alt="Ruda konfiturka 🦊"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000016273.jpg" alt="Nie miła peppa 🖕"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015905.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015556.jpg" alt="Nasze pierwsze słodkie zdjęcie ❤️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015532.jpg" alt="Sylwester z psychopatami ☠️"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015115.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015113.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015109.png" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000014495.jpg" alt=""></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015988.png" alt="My razem z kastim 👪"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015991.png" alt="Niegrzeczny kasti 👦"></div>
+            <div class="gallery-item" onclick="openModal(this)"><img src="img/1000015909.jpg" alt="Muminki 🎭"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Nasze Plany</h2>
+        <div class="plans-container">
+            <ul class="plans-list">
+                <li class="plan-item done">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Pierwszy wspólny wyjazd (Zaliczone!)</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Wyprowadzenie się na własne mieszkanie</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Wyjazd w góry ze znajomymi</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Adopcja psa/kota</span>
+                </li>
+                <li class="plan-item pending">
+                    <i class="far fa-circle"></i>
+                    <span>Wziąć ślub (Kiedyś!)</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div id="description-modal" class="custom-modal" onclick="closeDescModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeDescModal()">&times;</span>
+        <h3 id="desc-title"></h3>
+        <hr>
+        <p id="desc-text"></p>
+    </div>
+</div>
+
+<section>
+    <h2>Twoje Kupony</h2>
+    <div class="reasons-grid">
+        <div class="reason-card" id="coupon-1" onclick="askCoupon('coupon-1', 'Rób ze mną, co tylko zechcesz.')">
+            <i class="fas fa-ticket-alt"></i>
+            <h3>Rób ze mną, co tylko zechcesz.</h3>
+            <p>Kliknij, aby wykorzystać</p>
+            <div class="status-badge">Dostępny ❤️</div>
+        </div>
+        <div class="reason-card" id="coupon-2" onclick="askCoupon('coupon-2', 'Przebierz mnie dowolnie!')">
+            <i class="fas fa-ticket-alt"></i>
+            <h3>Przebierz mnie dowolnie!</h3>
+            <p>Kliknij, aby wykorzystać</p>
+            <div class="status-badge">Dostępny ❤️</div>
+        </div>
+        <div class="reason-card" id="coupon-3" onclick="askCoupon('coupon-3', 'Twoja erotyczna fantazja. Gdziekolwiek chcesz.')">
+            <i class="fas fa-ticket-alt"></i>
+            <h3>Twoja erotyczna fantazja. Gdziekolwiek chcesz.</h3>
+            <p>Kliknij, aby wykorzystać</p>
+            <div class="status-badge">Dostępny ❤️</div>
+        </div>
+    </div>
+</section>
+
+<div id="coupon-modal" class="custom-modal">
+    <div class="modal-content">
+        <h3 id="modal-coupon-title">Czy na pewno?</h3>
+        <p>Chcesz wykorzystać ten kupon teraz?</p>
+        <hr style="margin: 15px 0; opacity: 0.1; border: 0; border-top: 1px solid white;">
+        <div style="display: flex; justify-content: center; gap: 15px;">
+            <button id="confirm-coupon-btn" class="modal-btn-yes">TAK</button>
+            <button onclick="closeCouponModal()" class="modal-btn-no">NIE</button>
+        </div>
+    </div>
+</div>
+
+<section class="final-question">
+    <h2>Zanim wyjdziesz...</h2>
+    <div class="question-container">
+        <p>Czy zostaniesz moją Walentynką na zawsze? ❤️</p>
+        <div class="buttons-row">
+            <button id="yes-btn" onclick="celebrate()">TAK!</button>
+            <button id="no-btn" onclick="handleNo()">NIE</button>
+        </div>
+    </div>
+</section>
+
+<div id="final-modal" class="custom-modal" onclick="closeFinalModal()">
+    <div class="modal-content">
+        <h3>Wiedziałem! 😍</h3>
+        <hr>
+        <p>Jesteś moją najlepszą decyzją w życiu. Kocham Cię najbardziej na świecie! 💖</p>
+        <button class="close-final" onclick="closeFinalModal()">Daj buziaka! 💋</button>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
